@@ -11,7 +11,7 @@ const DomElement = function (string) {
 
   this.newTag = function (string) {
     if (string[0] === '.') {
-      let div = document.createElement('div');      
+      let div = document.createElement('div');
       const nameClass = string.slice(1);
 
       div.classList.add(`${nameClass}`);
@@ -25,7 +25,7 @@ const DomElement = function (string) {
       `;
 
       div.innerText = 'hello block';
-      body.prepend(div);      
+      body.prepend(div);
     } else if (string[0] === '#') {
       let paragraph = document.createElement('p');
       const nameClass = string.slice(1);
@@ -49,12 +49,23 @@ const DomElement = function (string) {
   };
 };
 
-const newElement = new DomElement('hai');
-newElement.newTag('#blok');
+// const newElement = new DomElement('hai');
+// newElement.newTag('#blok');
+class First {
+  hello() {
+    console.log('Привет я метод родителя!');
+  }
+}
 
+class Second extends First {
+  secondHello() {
+    console.log('А я наследуемый метод!');
+  }
+}
 
+const second = new Second();
 
-
-
+second.hello();
+second.secondHello();
 
 
